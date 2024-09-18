@@ -1,0 +1,44 @@
+[
+  {
+    "string": "sayed",
+    "number": 100,
+    "object": {
+      "EG": "akkar",
+      "ksa": "riyad"
+    },
+    "arry": ["html", "css", "java"],
+    "boolean": "true",
+    "null": null,
+
+    "string1": "sayed",
+    "number1": 100,
+    "object1": {
+      "EG1": "akkar",
+      "ksa1": "riyad"
+    },
+    "arry1": ["html", "css", "java"],
+    "boolean1": "true",
+    "null1": null
+  },
+  {
+    "string": "sayed",
+    "number": 100,
+    "object": {
+      "EG": "akkar",
+      "ksa": "riyad"
+    },
+    "arry": ["html", "css", "java"],
+    "boolean": "true",
+    "null": null,
+
+    "string1": "sayed",
+    "number1": 100,
+    "object1": {
+      "EG1": "akkar",
+      "ksa1": "riyad"
+    },
+    "arry1": ["html", "css", "java"],
+    "boolean1": "true",
+    "null1": null
+  }
+]

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .first {
+        width: 500px;
+        height: 350px;
+        border-radius: 20px;
+        /* border: 2px solid red; */
+      }
+
+      .container1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 30px; */
+        gap: 40px;
+        /* margin-bottom: 30px; */
+        height: 70vh;
+      }
+      .container2 {
+        text-align: center;
+        height: 30vh;
+      }
+
+      .image {
+        width: 150px;
+        height: 100px;
+        transition: all 0.3s ease;
+      }
+      .image:hover {
+        scale: 1.1;
+        cursor: pointer;
+        border: 5px solid gray;
+      }
+      .image:active {
+        scale: 0.9;
+      }
+      .dark {
+        background-color: black;
+        color: white;
+      }
+
+      .light {
+        background-color: white;
+        color: black;
+      }
+      button {
+        padding: 8px 20px;
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="container1">
+        <button onclick="prevImage()">prev</button>
+
+        <img class="first" src="images/img100.jpg" alt="" />
+
+        <button id="btn" class="dark" onclick="changeMode()">light mode</button>
+
+        <button onclick="nextImage()">next</button>
+      </div>
+      <div class="container2" id="thumbnailContainer"></div>
+    </div>
+
+    <script>
+      const images = [
+        "imagesimg100.jpg",
+        "imagesimg101.png",
+        "imagesimg102.jpg",
+        "imagesimg103.png",
+        "imagesimg104.jpg",
+        "imagesimg105.jpg",
+      ];
+
+      let currentImageIndex = 0;
+
+      const thumbnailContainer = document.getElementById("thumbnailContainer");
+      images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+
+        img.className = "image";
+        img.alt = `Image ${index + 1}`;
+        img.onclick = () => changeImage(index);
+        thumbnailContainer.appendChild(img);
+      });
+      function changeImage(index) {
+        currentImageIndex = index;
+        const src = images[currentImageIndex];
+        document.querySelector(".first").src = src;
+        document.body.style.backgroundImage = `url(${src})`;
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        const src = images[currentImageIndex];
+        document.querySelector(".first").src = images[currentImageIndex];
+        document.body.style.backgroundImage = `url(${src})`;
+      }
+
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        const src = images[currentImageIndex];
+        document.querySelector(".first").src = images[currentImageIndex];
+        document.body.style.backgroundImage = `url(${src})`;
+      }
+      function changeMode() {
+        const btn = document.getElementById("btn");
+        const isDarkMode = btn.className === "dark";
+
+        document.body.style.backgroundColor = isDarkMode ? "white" : "gray";
+        btn.innerHTML = isDarkMode ? "light mode" : "dark mode";
+
+        btn.className = isDarkMode ? "light" : "dark";
+      }
+    </script>
+  </body>
+</html>

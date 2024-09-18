@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .first {
+        width: 500px;
+        height: 350px;
+        border-radius: 20px;
+        /* border: 2px solid red; */
+      }
+
+      .container1 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        /* margin-top: 30px; */
+        gap: 40px;
+        /* margin-bottom: 30px; */
+        height: 70vh;
+      }
+      .container2 {
+        text-align: center;
+        height: 30vh;
+      }
+
+      .image {
+        width: 150px;
+        height: 100px;
+        transition: all 0.3s ease;
+      }
+      .image:hover {
+        scale: 1.1;
+        cursor: pointer;
+        border: 5px solid gray;
+      }
+      .image:active {
+        scale: 0.9;
+      }
+      .dark {
+        padding: 8px 25px;
+        background-color: black;
+        color: white;
+      }
+
+      .light {
+        padding: 8px 25px;
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container1">
+      <img class="first" src="download.jpg" alt="" />
+
+      <button class="dark" onclick="changeMode()">dark mode</button>
+    </div>
+    <div class="container2">
+      <img
+        class="image"
+        src="images.jpg"
+        onclick="changeImage('images.jpg')"
+        alt=""
+      />
+      <img
+        class="image"
+        src="Untitled.jpg"
+        onclick="changeImage('Untitled.jpg')"
+        alt=""
+      />
+      <img
+        class="image"
+        src="Untitled11.jpg"
+        onclick="changeImage('Untitled11.jpg')"
+        alt=""
+      />
+      <img
+        class="image"
+        src="download.jpg"
+        onclick="changeImage('download.jpg')"
+        alt=""
+      />
+      <img
+        class="image"
+        src="images.jpg"
+        onclick="changeImage(this.src)"
+        alt=""
+      />
+    </div>
+
+    <script>
+      function changeImage(src) {
+        document.querySelector(".first").src = src;
+      }
+      function changeMode() {
+        const btn = document.querySelector("button");
+        const isDarkMode = btn.className === "dark";
+
+        document.body.style.backgroundColor = isDarkMode ? "gray" : "white";
+        btn.innerHTML = isDarkMode ? "light mode" : "dark mode";
+
+        btn.className = isDarkMode ? "light" : "dark";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exerLocal</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      ul {
+        background: #eee;
+        width: fit-content;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+        gap: 30px;
+        height: 50px;
+      }
+      ul li:first-child {
+        background-color: red;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul li:nth-child(2) {
+        width: 30px;
+        height: 30px;
+        background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul li:nth-child(3) {
+        background-color: blue;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul li:nth-child(4) {
+        background-color: black;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      div {
+        background-color: red;
+        width: 250px;
+        height: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="active" data-color="red"></li>
+      <li data-color="green"></li>
+      <li data-color="blue"></li>
+      <li data-color="black"></li>
+    </ul>
+    <div class="div1"></div>
+    <script src="exerlocal.js"></script>
+  </body>
+</html>

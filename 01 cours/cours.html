@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coursfirst</title>
+  <script src="cours.js"></script>
+</head>
+<body>
+    <p id="demo1">the first page</p>
+    
+    <script>
+
+        // للتغير ما بداخل html
+        document.getElementById('demo1').innerHTML="the first java scripte";
+    </script>
+
+    <br><hr>
+      <p id="demo2">the first page</p>
+      <button type="button" onclick="clickMe()">click me button</button>
+      <script>
+         function clickMe(){                //   للتغير ما بداخل عند الضغط html
+          document.getElementById('demo2').innerHTML="the first java scripte";
+        }
+          
+      </script>
+      <hr>
+
+</body>
+</html>

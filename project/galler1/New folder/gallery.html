@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <style>
+      body {
+        background-size: cover;
+        background-position: center;
+        background-image: url("big.jpg");
+        transition: background-image 0.5s ease;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .first {
+        width: 500px;
+        height: 350px;
+        border-radius: 20px;
+      }
+
+      .bigImage-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 40px;
+
+        height: 70vh;
+      }
+
+      #bigImage {
+        width: 450px;
+        height: 300px;
+        transition: all 0.3s ease;
+      }
+      .smallImage-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .smallImage-container img {
+        width: 13%;
+        height: 120px;
+        transition: all 0.3s ease;
+      }
+      .smallImage-container img:hover {
+        scale: 1.1;
+        cursor: pointer;
+        border: 5px solid gray;
+      }
+      .smallImage-container img:active {
+        scale: 0.9;
+      }
+      .dark {
+        background-color: black;
+        color: white;
+      }
+
+      .light {
+        background-color: white;
+        color: black;
+      }
+      button {
+        padding: 8px 20px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button id="btn" class="dark" onclick="changeMode()">light mode</button> -->
+    <div class="bigImage-container">
+      <button id="prev">prev</button>
+      <img id="bigImage" src="big.jpg" alt="Big Image" />
+      <button id="next">next</button>
+    </div>
+
+    <div class="smallImage-container"></div>
+
+    <script>
+      let pictures = ["a1", "a2", "a3", "a4", "a5", "a6"];
+      let counter = 0;
+
+      const bigImage = document.querySelector("#bigImage");
+      const smallContainer = document.querySelector(".smallImage-container");
+      const next = document.querySelector("#next");
+      const prev = document.querySelector("#prev");
+
+      for (let i = 0; i < pictures.length; i++) {
+        let img = document.createElement("img");
+        img.src = pictures[i] + ".jpg";
+        smallContainer.appendChild(img);
+
+        img.onclick = () => {
+          bigImage.src = img.src;
+          counter = i;
+          const src = pictures[counter] + ".jpg";
+          document.body.style.backgroundImage = `url(${src})`;
+        };
+      }
+
+      next.onclick = () => {
+        counter++;
+        if (counter >= pictures.length) {
+          counter = 0;
+        }
+        bigImage.src = pictures[counter] + ".jpg";
+        const src = pictures[counter] + ".jpg";
+        document.body.style.backgroundImage = `url(${src})`;
+      };
+
+      prev.onclick = () => {
+        counter--;
+        if (counter < 0) {
+          counter = pictures.length - 1;
+        }
+        bigImage.src = pictures[counter] + ".jpg";
+        const src = pictures[counter] + ".jpg";
+        document.body.style.backgroundImage = `url(${src})`;
+      };
+      // function changeMode() {
+      //   const btn = document.getElementById("btn");
+      //   const isDarkMode = btn.className === "dark";
+
+      //   document.body.style.backgroundColor = isDarkMode ? "white" : "gray";
+      //   btn.innerHTML = isDarkMode ? "light mode" : "dark mode";
+
+      //   btn.className = isDarkMode ? "light" : "dark";
+      // }
+    </script>
+  </body>
+</html>
